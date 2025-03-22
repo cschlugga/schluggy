@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            background-image: url('https://www.dictionary.com/e/wp-content/uploads/2019/04/chungus.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: white;
+            color: red;
+            font-size: 1.5em;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        a:hover {
+            background-color: white;
+            color: red;
+        }
+
+        a.hidden-link {
+            pointer-events: auto; /* Allow clicking */
+        }
+    </style>
+</head>
+<body>
+    <a class="hidden-link" href="#">DO NOT CLICK</a>
+    <a class="hidden-link" href="https://linkedin.com/in/armando-cabrera-08725947">DO NOT CLICK</a>
+    <a class="hidden-link" href="#">DO NOT CLICK</a>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', event => {
+                const url = event.target.getAttribute('href');
+                
+                if (url === "#") {  // If it's a placeholder link, prevent redirection.
+                    event.preventDefault();
+                    alert('I told you not to click!');
+                } else {
+                    alert('I told you not to click!');
+                    // Allow redirection to the link
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
