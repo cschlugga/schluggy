@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DO NOT CLICK</title>
+    <style>
+        body {
+            background-image: url('https://www.dictionary.com/e/wp-content/uploads/2019/04/chungus.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: white;
+            color: red;
+            font-size: 1.5em;
+            text-decoration: none;
+            cursor: default;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: white;
+            color: red;
+        }
+
+        a::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        a.hidden-link {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <a class="hidden-link">DO NOT CLICK</a>
+    <a class="hidden-link">DO NOT CLICK</a>
+    <a class="hidden-link">DO NOT CLICK</a>
+
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                alert('I told you not to click!');
+            });
+        });
+    </script>
+</body>
+</html>
